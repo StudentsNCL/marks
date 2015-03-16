@@ -1,4 +1,5 @@
 
+
 var rowTemplate = $('tr.module').clone();
 
 rowTemplate.find('input').removeAttr('placeholder');
@@ -24,53 +25,74 @@ function extractData() {
 
         return {
             name: $(row).find('.moduleName').val(),
-            credits: $(row).find('.creditsWorth').val(),
-            result: $(row).find('.result').val(),
-            percentage: $(row).find('.pcOfDegree').val(),
+            credits: Number($(row).find('.creditsWorth').val()),
+            result: Number($(row).find('.result').val()),
+            percentage: Number($(row).find('.pcOfDegree').val()),
             el: row
         };
 
-    }).filter(function(module) {
-
-        return module.result != '';
-
     });
 }
+
+function setIfNotEmpty($el, val) {
+
+    if($el.val() != '')
+        $el.val(val);
+}
+
 
 function updateTable(modules) {
 
     modules.forEach(function(module) {
 
-        $(module.el).find('.moduleName').val(module.name);
-        $(module.el).find('.creditsWorth').val(module.credits);
-        $(module.el).find('.result').val(module.result);
-        $(module.el).find('.pcOfDegree').val(module.percentage);
+        setIfNotEmpty($(module.el).find('.moduleName'), module.name.trim());
+        setIfNotEmpty($(module.el).find('.creditsWorth'), module.credits.toFixed(2));
+        setIfNotEmpty($(module.el).find('.result'), module.result.toFixed(2));
+        $(module.el).find('.pcOfDegree').val(module.percentage.toFixed(2));
     });
 
 
     $('#overall').text(modules.reduce(function(accum, module) {
-
         return accum + module.percentage;
-
     }, 0));
 
 
+    var totalCreditsRequired = Number($('#totalCredits').val());
+
+    var totalCreditsSupplied = modules.reduce(function(accum, module) {
+        return accum + module.credits;
+    }, 0);
+
+    if(totalCreditsRequired == totalCreditsSupplied) {
+
+        $('#warning').text('');
+
+    } else if(totalCreditsRequired > totalCreditsSupplied) {
+
+        $('#warning').text('Not enough credits; add more modules');
+ 
+    } else if(totalCreditsRequired < totalCreditsSupplied) {
+
+        $('#warning').text('Too many credits supplied');
+
+    }
 }
 
 function updateResults() {
 
-    var totalCredits = parseFloat($('#totalCredits').val());
+    var totalCredits = Number($('#totalCredits').val());
 
     updateTable(extractData().map(function(module) {
            
         return $.extend(module, {
-
             percentage: (module.credits / totalCredits) * module.result
-
         });
 
     }));
 
 };
 
-$(document).on('keyup click', updateResults);
+$(document).on('ready change click', updateResults);
+
+
+
