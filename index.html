@@ -29,7 +29,12 @@
             <tr class="module">
                 <td><input type="text" class="form-control moduleName" placeholder="CSC3024"  /></td>
                 <td><input type="text" class="form-control creditsWorth" placeholder="10"  /></td>
-                <td><input type="text" class="form-control result" placeholder="70%"  /></td>
+                <td>
+                    <div class="input-group">
+                        <input type="text" class="form-control result" placeholder="70"  />
+                        <span class="input-group-addon">%</span>
+                    </div>
+                </td>
                 <td><input type="text" class="form-control pcOfDegree" disabled /></td>
                 <td><a href="#" class="deleteRow" style="display: none;"><i class="glyphicon glyphicon-trash text-danger"></i></a></td>
             </tr>
@@ -42,16 +47,19 @@
 
             </tr>
 
-            <tr>
-                <td colspan=2>
-                <td>Overall</td>
-                <td id="overall">0</td>
-            </tr>
-
         </table>
 
-        <div id="warning">
+        <div class="well pull-right col-sm-6 col-xs-12">
+            <h2>Overall</h2>
+            <div id="warning" class="alert alert-warning" role="alert" style="display:none">
+            </div>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar">
+                <span id="overall">0.0</span>%
+              </div>
+            </div>
         </div>
+
 
     </div>
 
