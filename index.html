@@ -1,0 +1,53 @@
+
+<html>
+
+<body>
+    
+    <h1>Are you Throwing Away Marks?</h1>
+
+    <div>
+        <b>Total Credits Available</b>
+        <input type="text" id="totalCredits" value="240" />
+    </div>
+
+    <hr/>
+
+    <table id="modules">
+
+        <tr>
+            <th>Module/Stage Name</th>
+            <th>Credits Worth</th>
+            <th>Result</th>
+            <th>Percentage Achieved</th>
+        </tr>
+
+        <tr class="exampleRow">
+            <td><input type="text" class="moduleName" placeholder="CSC3024" disabled /></td>
+            <td><input type="text" class="creditsWorth" placeholder="10" disabled /></td>
+            <td><input type="text" class="result" placeholder="70%" disabled /></td>
+            <td><input type="text" class="pcOfDegree" /></td>
+        </tr>
+
+        <tr id="addRow">
+
+            <td>
+                <input type="button" id="addRow" value="Add Row" />
+            </td>
+
+        </tr>
+
+        <tr>
+            <td colspan=2>
+            <td>Overall</td>
+            <td id="overall"></td>
+        </tr>
+    </table>
+            
+
+    <script src="jquery-2.1.3.min.js" type="text/javascript"></script>
+    <script src="marks.js" type="text/javascript"></script>
+
+</body>
+
+</html>
+
