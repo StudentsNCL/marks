@@ -1,7 +1,7 @@
 
-var rowTemplate = $('tr.exampleRow').clone().addClass('module');
+var rowTemplate = $('tr.module').clone();
 
-rowTemplate.find('input:not(.pcOfDegree)').prop('disabled', false).removeAttr('placeholder');
+rowTemplate.find('input').removeAttr('placeholder');
 
 $(document).on('click', '#addRow button', function() {
         
