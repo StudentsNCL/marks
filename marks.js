@@ -3,6 +3,8 @@ var rowTemplate = $('tr.module').clone();
 
 rowTemplate.find('input').removeAttr('placeholder');
 
+rowTemplate.find('.deleteRow').show();
+
 $(document).on('click', '#addRow button', function() {
         
     $('#addRow').before(rowTemplate.clone());
@@ -10,6 +12,10 @@ $(document).on('click', '#addRow button', function() {
 
     return false;
 
+});
+
+$(document).on('click', '.deleteRow', function(e) {
+    $(this).closest('tr').remove();
 });
 
 function extractData() {
@@ -32,8 +38,6 @@ function extractData() {
 }
 
 function updateTable(modules) {
-
-    console.log(modules);
 
     modules.forEach(function(module) {
 
@@ -69,6 +73,4 @@ function updateResults() {
 
 };
 
-$(document).on('click', updateResults);
-
-
+$(document).on('keyup click', updateResults);
