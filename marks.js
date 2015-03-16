@@ -3,7 +3,7 @@ var rowTemplate = $('tr.exampleRow').clone().addClass('module');
 
 rowTemplate.find('input:not(.pcOfDegree)').prop('disabled', false).removeAttr('placeholder');
 
-$(document).on('click', '#addRow input', function() {
+$(document).on('click', '#addRow button', function() {
         
     $('#addRow').before(rowTemplate.clone());
     $('.moduleName:last').focus();
