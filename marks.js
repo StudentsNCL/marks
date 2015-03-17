@@ -94,8 +94,11 @@ function updateResults() {
 };
 
 function saveData() {
+    $selectedCourse = $('#course').find('option:selected');
     var course = {
-        "credits": 240,
+        "id": $selectedCourse.val(),
+        "name": $selectedCourse.text(),
+        "credits": $('#totalCredits').val(),
         "modules": []
     }
 
@@ -122,6 +125,9 @@ function loadFromJson(data) {
             $('#addRow').before($row);
         });
 
+        if (data.id)
+            $('#course').val(data.id);
+
         updateResults();
 }
 
@@ -136,9 +142,9 @@ $('#course').change(function() {
     var id = $(this).val();
 
     $.getJSON('courses.json', function(data) {
-        if(data.length <= id)
+        if(data.length < id)
             return;
-        loadFromJson(data[id]);
+        loadFromJson(data[id - 1]);
     });
 });
 
