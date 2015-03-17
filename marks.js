@@ -7,7 +7,6 @@ rowTemplate.find('input').removeAttr('placeholder');
 rowTemplate.find('.deleteRow').show();
 
 $(document).on('click', '#addRow button', function() {
-        
     $('#addRow').before(rowTemplate.clone());
     $('.moduleName:last').focus();
 
@@ -93,6 +92,25 @@ function updateResults() {
 };
 
 $(document).on('ready keyup click', updateResults);
+
+$('#course').change(function() {
+    var id = $(this).val();
+
+    $.getJSON('courses.json', function(data) {
+        if(data.length <= id)
+            return;
+        $('.module').remove();
+        $('#totalCredits').val(data[id].credits);
+        $.each(data[id].modules, function(key, module) {
+            var $row = rowTemplate.clone()
+            $row.find('.moduleName').val(module.name);
+            $row.find('.creditsWorth').val(module.credits);
+            $row.find('.result').val(40);
+            $('#addRow').before($row);
+        });
+        updateResults();
+    });
+});
 
 
 

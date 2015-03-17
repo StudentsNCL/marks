@@ -2,12 +2,24 @@
 <html>
 
 <head>
+    <title>Marks</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="col-md-8 col-md-offset-2">
         <h1>Are you Throwing Away Marks?</h1>
+
+        <label for="course">Course</label>
+        <select class="form-control" id="course">
+            <option disabled selected>Select a course</option>
+            <option value="0">Computer Science</option>
+            <option value="1">Law</option>
+        </select>
 
         <div>
             <b>Total Credits Available</b>
@@ -19,11 +31,11 @@
         <table id="modules">
 
             <tr>
-                <th>Module/Stage Name</th>
-                <th>Credits Worth</th>
-                <th>Result</th>
-                <th>Percentage Achieved</th>
-                <th></th>
+                <th class="col-sm-6">Module/Stage Name</th>
+                <th class="col-sm-1">Credits Worth</th>
+                <th class="col-sm-2">Result</th>
+                <th class="col-sm-2">Percentage Achieved</th>
+                <th class="col-sm-1"></th>
             </tr>
 
             <tr class="module">
@@ -36,7 +48,7 @@
                     </div>
                 </td>
                 <td><input type="text" class="form-control pcOfDegree" disabled /></td>
-                <td><a href="#" class="deleteRow" style="display: none;"><i class="glyphicon glyphicon-trash text-danger"></i></a></td>
+                <td><span class="deleteRow" style="display:none;cursor:pointer;"><i class="glyphicon glyphicon-trash text-danger"></i></span></td>
             </tr>
 
             <tr id="addRow">
