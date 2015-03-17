@@ -1,0 +1,222 @@
+[
+	{
+		"id": 1,
+		"name": "Computer Science",
+		"credits": 240,
+		"modules": [
+			{
+				"name": "Stage 2",
+				"credits": 120
+			},
+			{
+				"code": "CSC3095",
+				"name": "Project and Dissertation in Computing Science",
+				"credits": 40
+			},
+			{
+				"code": "CSC3121",
+				"name": "Distributed Systems",
+				"credits": 10
+			},
+			{
+				"code": "CSC3122",
+				"name": "Mobile Computer Systems Development",
+				"credits": 10
+			},
+			{
+				"code": "CSC3123",
+				"name": "Internet Technology",
+				"credits": 10
+			},
+			{
+				"code": "CSC3124",
+				"name": "System and Network Security",
+				"credits": 10
+			},
+			{
+				"code": "CSC3221",
+				"name": "Programming for Games",
+				"credits": 10
+			},
+			{
+				"code": "CSC3222",
+				"name": "Gaming Simulations",
+				"credits": 10
+			},
+			{
+				"code": "CSC3223",
+				"name": "Graphics for Games",
+				"credits": 10
+			},
+			{
+				"code": "CSC3224",
+				"name": "Computer Games Development",
+				"credits": 10
+			},
+			{
+				"code": "CSC3321",
+				"name": "Understanding Programming Languages",
+				"credits": 10
+			},
+			{
+				"code": "CSC3322",
+				"name": "Real-Time and Cyber-Physical Systems",
+				"credits": 10
+			},
+			{
+				"code": "CSC3323",
+				"name": "Software Verification Technologies",
+				"credits": 10
+			},
+			{
+				"code": "CSC3324",
+				"name": "Understanding Concurrency",
+				"credits": 10
+			},
+			{
+				"code": "CSC3422",
+				"name": "Website Construction and Management (Server-side)",
+				"credits": 10
+			},
+			{
+				"code": "CSC3423",
+				"name": "Bio-computing",
+				"credits": 10
+			},
+			{
+				"code": "CSC3424",
+				"name": "Bio-algorithms",
+				"credits": 10
+			},
+			{
+				"code": "CSC3595",
+				"name": "Project and Dissertation in Information Systems",
+				"credits": 40
+			},
+			{
+				"code": "CSC3621",
+				"name": "Cryptography",
+				"credits": 10
+			},
+			{
+				"code": "CSC3622",
+				"name": "Reliability and Fault Tolerance",
+				"credits": 10
+			},
+			{
+				"code": "CSC3721",
+				"name": "Introduction to Human-Computer Interaction",
+				"credits": 10
+			},
+			{
+				"code": "CSC3722",
+				"name": "Advanced Interaction Design",
+				"credits": 10
+			},
+			{
+				"code": "CSC3723",
+				"name": "User Interface Techniques and Technologies",
+				"credits": 10
+			}
+
+		]
+	},
+	{
+		"id": 2,
+		"name": "Law",
+		"credits": 200,
+		"modules": [
+			{
+				"name": "Stage 2",
+				"credits": 80
+			},
+			{
+				"code": "LAW3003",
+				"name": "Competition Law",
+				"credits": 20
+			},
+			{
+				"code": "LAW3010",
+				"name": "Company Law",
+				"credits": 20
+			},
+			{
+				"code": "LAW3030",
+				"name": "Copyright Law",
+				"credits": 20
+			},
+			{
+				"code": "LAW3013",
+				"name": "Criminology and Criminal Justice",
+				"credits": 20
+			},
+			{
+				"code": "LAW3015",
+				"name": "Environmental Law",
+				"credits": 20
+			},
+			{
+				"code": "LAW3016",
+				"name": "Evidence",
+				"credits": 20
+			},
+			{
+				"code": "LAW3020",
+				"name": "Employment Law",
+				"credits": 20
+			},
+			{
+				"code": "LAW3024",
+				"name": "Medicine and the Law",
+				"credits": 20
+			},
+			{
+				"code": "LAW3029",
+				"name": "Law and Literature",
+				"credits": 20
+			},
+			{
+				"code": "LAW3031",
+				"name": "Succession",
+				"credits": 20
+			},
+			{
+				"code": "LAW3032",
+				"name": "Legal Theory",
+				"credits": 20
+			},
+			{
+				"code": "LAW3034",
+				"name": "Human Rights Law",
+				"credits": 20
+			},
+			{
+				"code": "LAW3035",
+				"name": "Terrorism and Counter-terrorism Law",
+				"credits": 20
+			},
+			{
+				"code": "LAW3036",
+				"name": "Family Law",
+				"credits": 20
+			},
+			{
+				"code": "LAW3038",
+				"name": "Law and History",
+				"credits": 20
+			},
+			{
+				"code": "LAW3041",
+				"name": "Law, Gender and Sexuality",
+				"credits": 20
+			},
+			{
+				"code": "LAW3098",
+				"name": "Dissertation in Law",
+				"credits": 40
+			}
+		]
+	}
+
+]
+
