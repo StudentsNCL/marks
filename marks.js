@@ -89,9 +89,48 @@ function updateResults() {
 
     }));
 
+    saveData();
+
 };
 
-$(document).on('ready keyup click', updateResults);
+function saveData() {
+    var course = {
+        "credits": 240,
+        "modules": []
+    }
+
+    $('#modules').find('.module').each(function(index, module) {
+        module = $(module);
+        course.modules.push({
+            name: module.find('.moduleName').val(),
+            credits: module.find('.creditsWorth').val(),
+            mark: module.find('.result').val()
+        });
+    });
+
+    localStorage.setItem('course', JSON.stringify(course));
+}
+
+function loadFromJson(data) {
+        $('.module').remove();
+        $('#totalCredits').val(data.credits);
+        $.each(data.modules, function(key, module) {
+            var $row = rowTemplate.clone()
+            $row.find('.moduleName').val(module.name);
+            $row.find('.creditsWorth').val(module.credits);
+            $row.find('.result').val(module.mark || 40);
+            $('#addRow').before($row);
+        });
+
+        updateResults();
+}
+
+$(document).on('keyup click', updateResults);
+
+if (localStorage.getItem('course')) {
+    var data = JSON.parse(localStorage.getItem('course'));
+    loadFromJson(data);
+}
 
 $('#course').change(function() {
     var id = $(this).val();
@@ -99,16 +138,7 @@ $('#course').change(function() {
     $.getJSON('courses.json', function(data) {
         if(data.length <= id)
             return;
-        $('.module').remove();
-        $('#totalCredits').val(data[id].credits);
-        $.each(data[id].modules, function(key, module) {
-            var $row = rowTemplate.clone()
-            $row.find('.moduleName').val(module.name);
-            $row.find('.creditsWorth').val(module.credits);
-            $row.find('.result').val(40);
-            $('#addRow').before($row);
-        });
-        updateResults();
+        loadFromJson(data[id]);
     });
 });
 
