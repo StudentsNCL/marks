@@ -4,6 +4,9 @@ var courses = [];
 /** Number of credits available */
 var totalCredits = 240;
 
+/** Current total percentage gained */
+var totalPercentage = 40;
+
 /** The course as stringified json from local storage */
 var localCourse = localStorage.getItem('course');
 
@@ -149,6 +152,12 @@ function updateTable(modules, allFields) {
     var mark = modules.reduce(function(accum, module) {
         return accum + module.percentage;
     }, 0);
+
+    // Confetti time!
+    totalPercentage = mark;
+    if (window.changeConfetti) {
+        changeConfetti();
+    }
 
     // Set overall value and progress bar width
     $overall.text(mark.toFixed(2)).parent().width(mark + '%');
