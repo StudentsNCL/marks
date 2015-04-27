@@ -142,7 +142,7 @@ function updateTable(modules, allFields) {
     modules.forEach(function(module) {
         if (allFields) {
             $(module.el).find('.moduleName').val(module.name.trim());
-            $(module.el).find('.creditsWorth').val(module.credits.toFixed(0));
+            $(module.el).find('.creditsWorth').val(module.credits);
             $(module.el).find('.result').val(module.result);
         }
         $(module.el).find('.pcOfDegree').val(module.percentage.toFixed(2));
