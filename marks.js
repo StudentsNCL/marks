@@ -66,6 +66,17 @@ $course.change(function() {
     loadFromObject(courses[id - 1]);
 });
 
+// Allow the table to be re-ordered
+$("#modules").find('tbody').sortable({
+    items: "tr",
+    cursor: 'move',
+    opacity: 0.6,
+    update: function() {
+        saveData();
+    }
+});
+
+
 /**
  * Takes a course object and loads it into the view, adding rows for each module
  * @param  {Object} data The course objtect
