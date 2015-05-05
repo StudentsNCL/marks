@@ -68,6 +68,20 @@ $(document).on('click', '.markDone', function(e) {
 // When an input is changed, fire updateResults(false) with a 200ms buffer
 $(document).on('keyup change', 'input', debounce(updateResults.bind(this, false), 200));
 
+// When an input loses focus, replace X/Y with percentages
+$(document).on('blur', 'input', function(e) {
+
+    var tokens = $(e.target).val().split('/');
+
+    if(tokens.length !== 2)
+        tokens = $(e.target).val().split(' out of ');
+
+    if(tokens.length === 2) {
+        $(e.target).val((Number(tokens[0]) / Number(tokens[1])) * 100);
+    }
+    
+});
+
 // When course selector is changed, refresh table
 $course.change(function() {
     var id = $(this).val();
