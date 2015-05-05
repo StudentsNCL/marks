@@ -25,8 +25,9 @@ var $course = $('#course');
 /** Add row button */
 var $addRow = $('#addRow');
 
-/** Span of the overall percentage */
-var $overall= $('#overall');
+/** Span of the guaranteed and predicted percentage */
+var $markGuaranteed= $('#markGuaranteed');
+var $markPredicted= $('#markPredicted');
 
 /** Warning alert */
 var $warning = $('#warning');
@@ -176,14 +177,19 @@ function updateTable(modules, allFields) {
         return accum + module.percentage;
     }, 0);
 
+    var markGuaranteed = modules.reduce(function(accum, module) {
+        return module.done ? accum + module.percentage : accum;
+    }, 0);
+
     // Confetti time!
     totalPercentage = mark;
     if (window.changeConfetti) {
         changeConfetti();
     }
 
-    // Set overall value and progress bar width
-    $overall.text(mark.toFixed(2)).parent().width(mark + '%');
+    // Set guaranteed and predicted value and progress bar width
+    $markGuaranteed.text(markGuaranteed.toFixed(2)).parent().width(markGuaranteed + '%');
+    $markPredicted.text(mark.toFixed(2)).parent().width((mark - markGuaranteed) + '%');
 
     // Calculate the total number of credits inputted
     var totalCreditsSupplied = modules.reduce(function(accum, module) {
