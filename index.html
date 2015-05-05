@@ -29,10 +29,19 @@
         .deleteRow {
             display: none;
         }
+        .markDone {
+            display: none;
+        }
         tr:hover .deleteRow {
             display: inline;
         }
+        tr:hover .markDone {
+            display: inline;
+        }
         .deleteRow > .glyphicon {
+            line-height: 2em;
+        }
+        .markDone > .glyphicon {
             line-height: 2em;
         }
         .well {
@@ -93,6 +102,7 @@
                             <th class="col-xs-2">Result</th>
                             <th class="col-xs-2">Overall</th>
                             <th class="col-xs-1"></th>
+                            <th class="col-xs-1"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -114,6 +124,7 @@
                             </td>
                             <td>
                                 <span class="deleteRow" style="cursor:pointer;"><i class="glyphicon glyphicon-trash text-danger"></i></span>
+                                <span class="markDone" style="cursor:pointer;"><i class="glyphicon glyphicon-ok"></i></span>
                             </td>
                         </tr>
                     </tbody>

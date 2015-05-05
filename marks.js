@@ -57,6 +57,13 @@ $(document).on('click', '.deleteRow', function(e) {
     updateResults();
 });
 
+// When a .markDone is clicked, toggle the done class on the row
+$(document).on('click', '.markDone', function(e) {
+    var tr = $(this).closest('tr').toggleClass('success');
+    tr.find('input').prop('disabled', tr.hasClass('success'));
+    updateResults();
+});
+
 // When an input is changed, fire updateResults(false) with a 200ms buffer
 $(document).on('keyup change', 'input', debounce(updateResults.bind(this, false), 200));
 
@@ -97,6 +104,10 @@ function loadFromObject(data) {
         $row.find('.moduleName').val(module.name);
         $row.find('.creditsWorth').val(module.credits);
         $row.find('.result').val(module.mark || 40);
+
+        if(module.done)
+            $row.addClass('success').find('input').prop('disabled', true);
+
         toAppend.push($row);
     });
 
@@ -138,6 +149,7 @@ function extractData() {
             credits: Number($(row).find('.creditsWorth').val()),
             result: Number($(row).find('.result').val()),
             percentage: Number($(row).find('.pcOfDegree').val()),
+            done: $(row).hasClass('success'),
             el: row
         };
     });
@@ -212,6 +224,7 @@ function saveData() {
             name: module.find('.moduleName').val(),
             credits: module.find('.creditsWorth').val(),
             mark: module.find('.result').val(),
+            done: module.hasClass('success')
         });
     });
 
